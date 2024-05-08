@@ -1,0 +1,12 @@
+.vscode
+checkpoints/
+
+exclude-*/
+
+__pycache__/
+*.slurm
+
+.ipynb_checkpoints
+
+notebooks
+*.ipynb
