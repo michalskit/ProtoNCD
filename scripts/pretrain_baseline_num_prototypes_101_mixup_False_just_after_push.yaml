@@ -1,0 +1,42 @@
+debugging: False
+project: pretrain_baseline
+comment: num_prototypes_101_mixup_False_just_after_push
+
+only_push: True
+only_push_model_path: checkpoints/pretrain/protopool/augmented_cub/Mar19_23-00-58-465399_num_prototypes_101_mixup_False/pretrained_checkpoint_epoch_45.pth
+
+alg: protopool
+pretrain: True
+pretrained_path: exclude-backbones/resnet50_iNaturalist.pth
+arch: resnet
+# dataset related
+dataset: augmented_cub
+batch_size: 256
+multicrop: False
+num_large_crops: 1
+num_small_crops: 1
+num_labeled_classes: 100
+num_unlabeled_classes: 100
+save_model: True
+
+# network
+num_heads: 0
+proj_dim: 256
+hidden_dim: 2048
+feat_dim: 2048
+
+# learning 
+lr: 0.001
+pretrain_epochs: 100
+pretrain_tune_epochs: 25
+num_workers: 8
+
+# protopool specific
+warmup_epochs: 10
+num_prototypes: 101
+mixup_data: False
+num_descriptive: 10
+
+# other unnecessary settings:
+num_extra_prototypes: 0
+gumbel_max_lab: null

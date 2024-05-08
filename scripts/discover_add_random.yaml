@@ -1,0 +1,123 @@
+
+debugging: false
+debugging_extra_epochs: false
+batch_size: 256
+
+comment: Numprototypes101MixupTrueNormalizeLastLayers_True_Pretrain_just_after_push_Extra_epochs_1_Num_extra_prototypes_101_freeze_pretrained_prototypes_except_num_extra_prototypes_thrallprs_freeze_pretrained_slots_ADDRANDOM
+
+project: baseline 
+
+not_use_kd_loss: false
+
+pretrain: false
+
+num_prototypes: 101
+mixup_data: True
+# extra epochs witout mixup:
+extra_epochs: 1
+
+# 101 prototypes:
+# pretrained_path: checkpoints/pretrain/protopool/augmented_cub/Mar19_23-00-58-465399_num_prototypes_101_mixup_False/best_model_push.pth
+
+# 101 prototypes just after push: 
+pretrained_path: checkpoints/pretrain/protopool/augmented_cub/Mar25_20-41-04-548275_num_prototypes_101_mixup_False_just_after_push/model_just_after_push.pth
+
+# 202 prototypes:
+# pretrained_path: checkpoints/pretrain/rKD/augmented_cub/Feb16_15-07-42-642339_retraining_after_fixed_use_ssb_splits_lr_0.0005_minlr_0.001_warmup_10_maxepochs_10_momentumopt_0.9_weightdecay_0.00015_kdtemp_0.4_alpha_0.1_numheads_0_temp_0.1_entropy_loss_weight_100/best_model_push.pth
+
+# 202 prototypes without mixup:
+# pretrained_path: checkpoints/pretrain/protopool/augmented_cub/Mar20_20-44-52-695560_num_prototypes_202_mixup_False/best_model_push.pth
+
+only_push: False
+only_push_model_dir: checkpoints/discover/baseline/augmented_cub/Mar07_21-11-40-901827___HyrSrchSimReg_perc_3_lamb_0.0001_similarity_reg_True_batch_size_256_max_epochs_300_only_push_False_project___baseline__discover_protopool_resnet_inat_augmented_cub_24/
+
+lr: 0.001 #2.0e-06
+max_epochs: 150
+max_tune_epoch: 120
+entropy_loss_weight: 10 # 100 # 1
+
+freeze_backbone: False
+freeze_backbone_except_num_extra_prototypes: False
+# warmup hast to be null if the freeze_backbone is True:
+warmup: True
+warmup_time: 10
+
+# knowledge distillation from icicle:
+similarity_reg: False
+similarity_reg_on_seen_only: False
+perc: null
+lamb: 0 #0.01
+
+# freeze slots of prototypes in lab:
+gumbel_max_lab: False
+
+# extra prototypes:
+num_extra_prototypes: 101
+
+# last layer of head_unlab connections_weights
+average_last_layer_weights: False
+
+# normalize_last_layers
+normalize_last_layers: True
+
+# probably not important:
+l1_in_discover_training: False
+
+# freeze only pretrained prototypes:
+freeze_pretrained_prototypes_except_num_extra_prototypes: True
+
+freeze_pretrained_slots: true
+
+# noise_multiplier for creation of new prototypes (0 for no noise):
+noise_multiplier: 0
+add_random_prototypes: true
+
+freeze_encoder: false
+
+# other not currently explored:
+alg: baseline
+alpha: 0.1
+amp: false
+arch: resnet
+dataset: augmented_cub
+eval: false
+feat_dim: 2048
+gpus: '0'
+grad_from_block: 11
+hidden_dim: 2048
+# is_head: false
+kd_temperature: 4
+# min_lr: 2.0e-07
+# momentum_opt: 0.9
+n_views: 1
+num_heads: 2
+# num_hidden_layers: 1
+num_labeled_classes: 100
+num_unlabeled_classes: 100
+num_workers: 8
+# proj_dim: 256
+save_model: true
+temperature: 0.1
+unknown_cluster: false
+use_ssb_splits: true
+# warmup_epochs: 50
+# weight_decay_opt: 0.0001
+use_l2_on_prototypes: False
+proto_l2_loss_weight: 0
+save_model_every: 5
+parallel: False
+# ablations
+eta_equals_one: False
+freeze_pretrained_part_of_model: False
+freeze_pretrained_prototypes: False
+
+# restarting model:
+restart_from_checkpoint: False
+restart_checkpoint_path:
+
+# checkpoints/discover/baseline/augmented_cub/Mar07_21-11-40-901827___HyrSrchSimReg_perc_3_lamb_0.0001_similarity_reg_True_batch_size_256_max_epochs_300_only_push_False_project___baseline__discover_protopool_resnet_inat_augmented_cub_24/
+# testing: push epoch 1 checkpoints/discover/baseline/augmented_cub/Feb28_16-07-45-598634_debugging_lr_0.001_minlr_2e-07_warmup_50_maxepochs_60_momentumopt_0.9_weightdecay_0.0001_kdtemp_4_alpha_0.1_numheads_2_temp_0.1_entropy_loss_weight_10/push_latest_checkpoint.pth
+# testing: epoch 10: checkpoints/discover/baseline/augmented_cub/Feb27_21-45-58-870136_debugging_lr_0.001_minlr_2e-07_warmup_50_maxepochs_60_momentumopt_0.9_weightdecay_0.0001_kdtemp_4_alpha_0.1_numheads_2_temp_0.1_entropy_loss_weight_10/latest_checkpoint.pth
+# testing: epoch 11: checkpoints/discover/baseline/augmented_cub/Feb28_12-54-14-804497_debugging_lr_0.001_minlr_2e-07_warmup_50_maxepochs_60_momentumopt_0.9_weightdecay_0.0001_kdtemp_4_alpha_0.1_numheads_2_temp_0.1_entropy_loss_weight_10/latest_checkpoint.pth
+
+

@@ -8,8 +8,17 @@ In this work, we introduce ProtoNCD, a novel approach to novel class discovery (
 - Daniel Barczyk, Jagiellonian University, Faculty of Mathematics and Computer Science
 - Bartosz Zieliński, Jagiellonian University, Faculty of Mathematics and Computer Science & IDEAS NCBR
 
-## Code Availability
-The implementation of the ProtoNCD method will be available soon.
+## Dependencies
+- pytorch
+- wandb
+- sklearn
+- pandas
+- numpy
+- tqdm
+
+## Usage
+
+    python ProtoNCD.py --c scripts/discover_freeze_pretrained_slots.yaml
 
 ## Acknowledgments
 This work was funded by the National Science Centre (Poland) grant no. 2022/47/B/ST6/03397. We gratefully acknowledge Polish high-performance computing infrastructure PLGrid (HPC Centers: ACK Cyfronet AGH) for providing computer facilities and support within computational grant no. PLG/2023/016555.
